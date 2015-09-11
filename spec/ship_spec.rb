@@ -2,17 +2,9 @@ require 'ship'
 
 describe Ship do
 
-  let(:subject){Ship.new}
-
   it 'ship has health which is equal to its size' do
-    ship=Ship.new
-    expect(ship.size).to eq(ship.health)
+    expect(subject.size).to eq(subject.health)
   end
-
-  # it 'lets us choose a size' do
-  #   ship = Ship.new
-  #   expect(ship.size).to eq 5
-  # end
 
   it 'loses a life when it gets shot' do
     health = subject.health
@@ -20,14 +12,8 @@ describe Ship do
     expect(subject.health).to eq(health-1)
   end
 
-  it 'tells us when it dead' do
-    ship = Ship.new
-    expect{ship.hit}.to output("You sunk my battleship!\n").to_stdout
+  it 'tells us when it\'s dead' do
+    expect{subject.hit}.to output("You sunk my battleship!\n").to_stdout
   end
-
-  # it 'ship of size five, does not return dead when hit for the first time' do
-  #   ship = Ship.new(5)
-  #   expect{subject.hit}.not_to output("Dead!\n").to_stdout
-  # end
 
 end

@@ -2,8 +2,8 @@ require 'board'
 
 describe Board do
 
-  let(:ship){double(:ship, hit: nil, size: 2, class: Ship, health: 2)}
-  let(:ship_dead){double(:ship, hit: nil, size: 1, class: Ship, health: 0)}
+  let(:ship){double(:ship, hit: nil, size: 2, kind_of?: Ship, health: 2)}
+  let(:ship_dead){double(:ship, hit: nil, size: 1, kind_of?: Ship, health: 0)}
   let(:ship_size_3){double(:ship , hit: nil, size: 3)}
 
   describe '#place' do

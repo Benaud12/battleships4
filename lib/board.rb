@@ -81,8 +81,10 @@ class Board
 
   end
 
+  private
+
   def winner?
-    puts "Congratulations you have won the game!" if board.select{|s| s.class == Ship}.all? {|d| d.health == 0}
+    puts "Congratulations you have won the game!" if board.select{|s| s.kind_of? Ship}.all? {|d| d.health == 0}
   end
 
   def duplicate_shot?(coord)
@@ -106,7 +108,7 @@ class Board
         raise error_message if board[i] != map[i]
       elsif d == 's'
         i += 10
-        raise error_message if board[i] != map[i] 
+        raise error_message if board[i] != map[i]
       elsif d == 'e'
         i += 1
         raise error_message if board[i] != map[i]
@@ -131,9 +133,8 @@ class Board
     end
 
     board_width = 10
-    row_number = i / board_width + 1
-    column_number = i % board_width + 1
-
+    row_number = (i / board_width) + 1
+    column_number = (i % board_width) + 1
 
     if d == 'n'
       raise error_message if row_number - size < 0
